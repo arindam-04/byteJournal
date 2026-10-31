@@ -44,7 +44,7 @@ async function verifyImageSignature(filePath, mime) {
   } finally { await handle.close(); }
 }
 const PORT = Number(process.env.PORT || 4000);
-const HOST = process.env.HOST || '127.0.0.1';
+const HOST = process.env.HOST || '0.0.0.0';
 const COOKIE_NAME = 'bytejournal_admin';
 const JWT_SECRET = process.env.JWT_SECRET || '';
 if (JWT_SECRET.length < 32 || JWT_SECRET.startsWith('REPLACE_')) throw new Error('JWT_SECRET must be a unique random value of at least 32 characters. Configure it in the project-root .env file.');
