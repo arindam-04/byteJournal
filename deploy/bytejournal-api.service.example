@@ -1,0 +1,23 @@
+[Unit]
+Description=ByteJournal Node.js API
+After=network.target postgresql.service
+Wants=network.target
+
+[Service]
+Type=simple
+User=bytejournal
+Group=bytejournal
+WorkingDirectory=/opt/bytejournal-fullstack
+EnvironmentFile=/opt/bytejournal-fullstack/.env
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node /opt/bytejournal-fullstack/server/src/index.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/bytejournal-fullstack/server/uploads
+
+[Install]
+WantedBy=multi-user.target

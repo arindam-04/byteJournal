@@ -1,0 +1,32 @@
+{
+  "name": "bytejournal-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "migrate": "node scripts/migrate.js",
+    "db:check": "node scripts/db-check.js",
+    "backup": "node scripts/backup.js",
+    "restore": "node scripts/restore.js",
+    "check": "node --check src/index.js && node --check src/db.js && node --check src/origin-policy.js && node --check scripts/migrate.js && node --check scripts/db-check.js && node --check scripts/backup.js && node --check scripts/restore.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.1",
+    "zod": "^4.6.7",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

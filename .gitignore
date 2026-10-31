@@ -1,0 +1,15 @@
+node_modules/
+client/dist/
+server/uploads/*
+!server/uploads/.gitkeep
+uploads/
+.env
+.env.*
+!.env.example
+!client/.env.example
+npm-debug.log*
+backups/
+*.dump
+*.sql.gz
+coverage/
+.DS_Store

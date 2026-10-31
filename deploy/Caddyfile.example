@@ -1,0 +1,30 @@
+# Replace example.com and the frontend path before enabling this configuration.
+example.com {
+  encode zstd gzip
+
+  handle /api/* {
+    reverse_proxy 127.0.0.1:4000
+  }
+
+  handle /uploads/* {
+    reverse_proxy 127.0.0.1:4000
+  }
+
+  handle /sitemap.xml {
+    reverse_proxy 127.0.0.1:4000
+  }
+
+  handle /feed.xml {
+    reverse_proxy 127.0.0.1:4000
+  }
+
+  handle /robots.txt {
+    reverse_proxy 127.0.0.1:4000
+  }
+
+  handle {
+    root * /var/www/bytejournal/client/dist
+    try_files {path} /index.html
+    file_server
+  }
+}
