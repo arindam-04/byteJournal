@@ -16,6 +16,12 @@ import { pool, initializeDatabase } from './db.js';
 import { createAllowedOrigins, isTrustedRequestOrigin, isCorsOriginAllowed, getOriginDiagnostics } from './origin-policy.js';
 
 const app = express();
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Backend server is running",
+  });
+});
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 const uploadDir = path.resolve(__dirname, '../uploads');
